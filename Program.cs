@@ -1,4 +1,10 @@
+using WebCRUD.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=empleadas.db"));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

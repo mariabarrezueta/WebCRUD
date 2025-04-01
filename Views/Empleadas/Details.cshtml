@@ -1,0 +1,25 @@
+@model WebCRUD.Models.Empleada
+
+@{
+    ViewData["Title"] = "Detalles de Empleada";
+}
+
+<h1>Detalles</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Nombre:</dt>
+            <dd class="col-sm-8">@Model.Nombre</dd>
+
+            <dt class="col-sm-4">Dirección:</dt>
+            <dd class="col-sm-8">@Model.Direccion</dd>
+
+            <dt class="col-sm-4">Teléfono:</dt>
+            <dd class="col-sm-8">@Model.Telefono</dd>
+        </dl>
+
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
