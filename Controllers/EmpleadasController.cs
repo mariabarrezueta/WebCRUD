@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCRUD.Data;
 using WebCRUD.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebCRUD.Controllers
 {
+    [Authorize]
     public class EmpleadasController : Controller
     {
         private readonly AppDbContext _context;
@@ -18,6 +20,16 @@ namespace WebCRUD.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Empleadas.ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var empleada = await _context.Empleadas.FirstOrDefaultAsync(m => m.Id == id);
+            if (empleada == null) return NotFound();
+
+            return View(empleada);
         }
 
         // GET: Empleadas/Create
@@ -83,16 +95,5 @@ namespace WebCRUD.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-        public async Task<IActionResult> Details(int? id)
-        {
-        if (id == null) return NotFound();
-
-        var empleada = await _context.Empleadas.FirstOrDefaultAsync(m => m.Id == id);
-        if (empleada == null) return NotFound();
-
-        return View(empleada);
-        }
-
     }
 }

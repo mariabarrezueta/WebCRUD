@@ -1,33 +1,35 @@
 using WebCRUD.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Base de datos SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=empleadas.db"));
+    options.UseSqlServer("Server=KEKAPRO\\SQLEXPRESS;Database=EmpleadasDB;Trusted_Connection=True;TrustServerCertificate=True;"));
 
+// Agregar soporte para Identity (usuarios/login)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+    options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<AppDbContext>();
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
+// Middleware
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseAuthentication(); 
 app.UseAuthorization();
 
+// Rutas
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages(); 
 
 app.Run();
