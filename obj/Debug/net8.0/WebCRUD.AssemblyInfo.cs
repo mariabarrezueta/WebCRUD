@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebCRUD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81c97c9cec65dd9c62a394ca2c5f776d96639dee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d42d9a9095e310964d72e9f41f1dfb8aa376e4e9")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebCRUD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebCRUD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
