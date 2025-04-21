@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Base de datos SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer("Server=KEKAPRO\\SQLEXPRESS;Database=EmpleadasDB;Trusted_Connection=True;TrustServerCertificate=True;"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Agregar soporte para Identity (usuarios/login)
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
