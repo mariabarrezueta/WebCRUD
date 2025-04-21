@@ -75,3 +75,35 @@ dotnet run
 
 ## Autora 
 Maria Barrezueta Arrieta
+
+
+
+## TRABAJO DE DEPLOY 
+Mi proyecto implementa funcionalidades de registro e inicio de sesión mediante Identity, así como operaciones CRUD conectadas a una base de datos SQL en la nube de Azure. El objetivo del proyecto es permitir la gestión de registros de empleados, incluyendo autenticación segura y almacenamiento persistente. La aplicación ha sido desplegada en Azure App Service y utiliza GitHub Actions para automatizar el proceso de integración y despliegue continuo. Este trabajo lo realice con credenciales estudiantiles en Azure.
+
+-- Links útiles 
+
+Documentación oficial ASP.NET Core MVC:
+https://learn.microsoft.com/es-es/aspnet/core/mvc/overview
+
+Documentación oficial de ASP.NET Identity:
+https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity
+
+Publicación de apps ASP.NET en Azure App Service:
+https://learn.microsoft.com/es-es/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vscode
+
+https://www.youtube.com/watch?v=IfOQjfLR3pc
+
+
+
+-- Video explicativo de la deployacion 
+https://youtu.be/j-C9lKJBT54
+
+-- Link de deployacion 
+webcrud-mvc-cyffhggta0fqdzb6.brazilsouth-01.azurewebsites.net
+
+-- Enlace del proyecto
+https://github.com/mariabarrezueta/WebCRUD.git
+
+
+
