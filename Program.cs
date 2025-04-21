@@ -19,6 +19,13 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<AppDbContext>();
+    context.Database.Migrate(); // Ejecuta las migraciones pendientes
+}
+
 // Middleware
 app.UseStaticFiles();
 app.UseRouting();
